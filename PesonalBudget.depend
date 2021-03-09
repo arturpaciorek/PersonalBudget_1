@@ -1,0 +1,140 @@
+# depslib dependency file v1.0
+1615288935 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\balancemanager.cpp
+	"BalanceManager.h"
+
+1611230643 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\datamanager.cpp
+
+1611230643 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\expense.cpp
+
+1614260702 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\filewithexpenses.cpp
+	"FileWithExpenses.h"
+
+1614260813 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\filewithincomes.cpp
+	"FileWithIncomes.h"
+
+1611230643 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\income.cpp
+
+1615291459 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\main.cpp
+	<iostream>
+	<windows.h>
+	"PersonalBudget.h"
+
+1615292038 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\personalbudget.cpp
+	"PersonalBudget.h"
+
+1611244076 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\textfile.cpp
+	"TextFile.h"
+
+1611236129 c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\textfile.h
+	<iostream>
+	<fstream>
+
+1614247425 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\user.cpp
+	"user.h"
+
+1614247393 c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\user.h
+	<iostream>
+	<vector>
+
+1614242245 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\auxiliarymethods.cpp
+	"AuxiliaryMethods.h"
+
+1614242245 c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\auxiliarymethods.h
+	<iostream>
+	<sstream>
+	<algorithm>
+
+1614247433 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\filewithusers.cpp
+	"FileWithUsers.h"
+
+1611565829 c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\filewithusers.h
+	<iostream>
+	<vector>
+	<fstream>
+	"User.h"
+	"AuxiliaryMethods.h"
+	"TextFile.h"
+
+1614250143 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\usermanager.cpp
+	"UserManager.h"
+
+1611565403 c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\usermanager.h
+	<iostream>
+	<vector>
+	<windows.h>
+	<fstream>
+	<sstream>
+	"User.h"
+	"FileWithUsers.h"
+	"AuxiliaryMethods.h"
+
+1615291453 c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\personalbudget.h
+	<iostream>
+	"UserManager.h"
+	"BalanceManager.h"
+
+1615281910 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\date.cpp
+	"Date.h"
+
+1563575205 c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\date.h
+	<iostream>
+	<windows.h>
+	<winbase.h>
+	"AuxiliaryMethods.h"
+
+1563575205 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\markup.cpp
+	<stdio.h>
+	"Markup.h"
+	<errno.h>
+	<iconv.h>
+	<windows.h>
+	<mbstring.h>
+
+1563575205 c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\markup.h
+	<stdlib.h>
+	<string.h>
+	<string>
+	<afx.h>
+
+1614249308 source:c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\incomeexpense.cpp
+	"IncomeExpense.h"
+
+1614248748 c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\incomeexpense.h
+	<iostream>
+
+1614255865 c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\filewithexpenses.h
+	<iostream>
+	<vector>
+	<fstream>
+	<cstdlib>
+	<iostream>
+	<vector>
+	<fstream>
+	<cstdlib>
+	"IncomeExpense.h"
+	"AuxiliaryMethods.h"
+	"Markup.h"
+	"Date.h"
+
+1615288960 c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\balancemanager.h
+	<iostream>
+	<vector>
+	<string>
+	<conio.h>
+	"Date.h"
+	"IncomeExpense.h"
+	"FileWithExpenses.h"
+	"FileWithIncomes.h"
+	"Markup.h"
+
+1614256063 c:\users\artur paciorek\onedrive\dokumenty\personalia\przyszly programista\bud¿et osobisty\personalbudget\pesonalbudget\filewithincomes.h
+	<iostream>
+	<vector>
+	<fstream>
+	<string>
+	<cstdlib>
+	"IncomeExpense.h"
+	"AuxiliaryMethods.h"
+	"Markup.h"
+	"Date.h"
+
