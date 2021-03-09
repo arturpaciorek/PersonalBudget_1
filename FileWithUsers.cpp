@@ -1,125 +1,106 @@
 #include "FileWithUsers.h"
 
-
-string FileWithUsers :: changeUserDataToLineWithDataSeparatedByVerticalLines(User user)
+void FileWithUsers::addNewUserToFile(User user)
 {
-    string lineWithUserData = "";
+    CMarkup xml;
 
-    lineWithUserData += AuxiliaryMethods::convertionIntToString(user.getId())+ '|';
-    lineWithUserData += user.getLogin() + '|';
-    lineWithUserData += user.getPassword() + '|';
-
-    return lineWithUserData;
-}
-
-void FileWithUsers :: addUserToFile(User user)
-{
-    fstream textFile;
-    string lineWithUserData = "";
-    textFile.open(loadFileName().c_str(), ios::app);
-
-    if (textFile.good() == true)
+    if (fileExist("users.xml") == false)
     {
-        lineWithUserData = changeUserDataToLineWithDataSeparatedByVerticalLines(user);
-
-        if (isFileEmpty() == true)
-        {
-            cout<<"test"<<endl;
-            system("pause");
-            textFile << lineWithUserData;
-        }
-        else
-        {
-            textFile << endl << lineWithUserData ;
-        }
+        xml.AddElem("Users");
+        xml.IntoElem();
+        xml.AddElem("User");
+        xml.IntoElem();
+        xml.AddElem( "UserID", user.getId() );
+        xml.AddElem( "login", user.getLogin() );
+        xml.AddElem( "password", user.getPassword());
+        xml.AddElem( "name", user.getName());
+        xml.AddElem( "surname", user.getSurname());
+        xml.OutOfElem();
+        xml.Save( usersFileName.c_str() );
     }
     else
-        cout << "Nie udalo sie otworzyc pliku " << loadFileName() << " i zapisac w nim danych." << endl;
-    textFile.close();
+    {
+        xml.Load(usersFileName.c_str());
+        xml.FindElem();
+        xml.IntoElem();
+        xml.AddElem("User");
+        xml.IntoElem();
+        xml.AddElem( "UserID", user.getId() );
+        xml.AddElem( "login", user.getLogin() );
+        xml.AddElem( "password", user.getPassword());
+        xml.AddElem( "name", user.getName());
+        xml.AddElem( "surname", user.getSurname());
+        xml.OutOfElem();
+        xml.Save( usersFileName.c_str() );
+    }
 }
-
- vector <User> FileWithUsers :: loadUserFromFile()
- {
-     fstream textFile;
+vector <User> FileWithUsers::loadUsersFromFile()
+{
+    CMarkup xml;
     User user;
     vector <User> users;
-    string daneJednegoUzytkownikaOddzielonePionowymiKreskami = "";
+    string userId, userLogin, userPassword, userName, userSurname;
+    xml.Load(usersFileName.c_str());
+    xml.FindElem("Users");
+    xml.IntoElem();
 
-    textFile.open(loadFileName().c_str(), ios::in);
-
-    if (textFile.good() == true)
+    while (xml.FindElem("User"))
     {
-        while (getline(textFile, daneJednegoUzytkownikaOddzielonePionowymiKreskami))
-        {
-            user = loadUserData(daneJednegoUzytkownikaOddzielonePionowymiKreskami);
-            users.push_back(user);
-        }
-        textFile.close();
+        xml.IntoElem();
+        xml.FindElem("UserID");
+        userId = xml.GetData();
+        user.setId(AuxiliaryMethods::convertStringToInt(userId));
+        xml.FindElem("login");
+        userLogin = xml.GetData();
+        user.setLogin(userLogin);
+        xml.FindElem("password");
+        userPassword = xml.GetData();
+        user.setPassword(userPassword);
+        xml.FindElem("name");
+        userName = xml.GetData();
+        user.setName(userName);
+        xml.FindElem("surname");
+        userSurname = xml.GetData();
+        user.setSurname(userSurname);
+        users.push_back(user);
+        xml.OutOfElem();
     }
     return users;
- }
-
- User FileWithUsers :: loadUserData(string daneJednegoUzytkownikaOddzielonePionowymiKreskami)
-{
-    User user;
-    string pojedynczaDanaUzytkownika = "";
-    int numerPojedynczejDanejUzytkownika = 1;
-
-    for (int pozycjaZnaku = 0; pozycjaZnaku < daneJednegoUzytkownikaOddzielonePionowymiKreskami.length(); pozycjaZnaku++)
-    {
-        if (daneJednegoUzytkownikaOddzielonePionowymiKreskami[pozycjaZnaku] != '|')
-        {
-            pojedynczaDanaUzytkownika += daneJednegoUzytkownikaOddzielonePionowymiKreskami[pozycjaZnaku];
-        }
-        else
-        {
-            switch(numerPojedynczejDanejUzytkownika)
-            {
-            case 1:
-                user.setId(atoi(pojedynczaDanaUzytkownika.c_str()));
-                break;
-            case 2:
-                user.setLogin(pojedynczaDanaUzytkownika);
-                break;
-            case 3:
-                user.setPassword(pojedynczaDanaUzytkownika);
-                break;
-            }
-            pojedynczaDanaUzytkownika = "";
-            numerPojedynczejDanejUzytkownika++;
-        }
-    }
-    return user;
 }
-
-void FileWithUsers :: saveAllUsersToFile(vector <User> users)
+void FileWithUsers::saveAllUsersToFile(vector <User> users)
 {
-    fstream textFile;
-    string liniaZDanymiUzytkownika = "";
-    vector <User>::iterator itrKoniec = --users.end();
-
-    textFile.open(loadFileName().c_str(), ios::out);
-
-    if (textFile.good() == true)
+    remove("users.xml") ;
+    CMarkup xml;
+    xml.AddElem("Users");
+    for (vector <User> :: iterator itr = users.begin(); itr != users.end(); itr++)
     {
-        for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++)
-        {
-            liniaZDanymiUzytkownika = changeUserDataToLineWithDataSeparatedByVerticalLines(*itr);
-
-            if (itr == itrKoniec)
-            {
-               textFile << liniaZDanymiUzytkownika;
-            }
-            else
-            {
-                textFile << liniaZDanymiUzytkownika << endl;
-            }
-            liniaZDanymiUzytkownika = "";
-        }
+        xml.IntoElem();
+        xml.AddElem("User");
+        xml.IntoElem();
+        xml.AddElem( "UserID", itr->getId() );
+        xml.AddElem( "login", itr->getLogin() );
+        xml.AddElem( "password", itr->getPassword());
+        xml.AddElem( "name", itr->getName());
+        xml.AddElem( "surname", itr->getSurname());
+        xml.OutOfElem();
+        xml.OutOfElem();
+        xml.Save( usersFileName.c_str() );
     }
+}
+bool FileWithUsers::checkIfFileIsEmpty()
+{
+    fstream xmlFile;
+    xmlFile.seekg(0, ios::end);
+    if (xmlFile.tellg() == 0)
+        return true;
     else
-    {
-        cout << "Nie mozna otworzyc pliku " << loadFileName() << endl;
-    }
-    textFile.close();
+        return false;
+}
+bool FileWithUsers::fileExist(string fileName)
+{
+    CMarkup xml;
+    if (xml.Load(usersFileName.c_str()) == true)
+        return true;
+    else
+        return false;
 }

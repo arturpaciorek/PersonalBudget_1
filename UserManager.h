@@ -26,8 +26,7 @@ class UserManager
 public:
     UserManager(string nameFileWithUsers) : fileWithUsers(nameFileWithUsers){
     idLoggedUser = 0;
-    users = fileWithUsers.loadUserFromFile();
-
+    users = fileWithUsers.loadUsersFromFile();
     };
     bool isUserLogged();
     int loggingUser();
