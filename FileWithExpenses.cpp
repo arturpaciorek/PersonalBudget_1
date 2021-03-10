@@ -56,6 +56,9 @@ vector <IncomeExpense> FileWithExpenses::downloadLoggedInUserExpenses(int logged
         xml.FindElem("USERID");
         userid = atoi( MCD_2PCSZ(xml.GetData()));
 
+        xml.FindElem("EXPENSEID");
+        lastExpenseID = atoi( MCD_2PCSZ(xml.GetData()));
+
         if (userid == loggedInUserID)
         {
             expense.setUserID(userid);
@@ -76,10 +79,7 @@ vector <IncomeExpense> FileWithExpenses::downloadLoggedInUserExpenses(int logged
     {
          lastExpenseID = 0;
     }
-    else if (fileExists(expenseFileName.c_str())== true)
-    {
-        lastExpenseID = expenses.back().getIncomeOrExpenseID();
-    }
+
 
     return expenses;
 }

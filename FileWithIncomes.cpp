@@ -41,8 +41,9 @@ vector <IncomeExpense> FileWithIncomes::downloadLoggedInUserIncomes(int loggedIn
     CMarkup xml;
     Date date;
     int dateInt;
-    IncomeExpense income;
+    IncomeExpense income ;
     vector <IncomeExpense> incomes;
+    vector <IncomeExpense> allincomes;
     int userid;
 
     xml.Load(incomeFileName.c_str());
@@ -51,8 +52,12 @@ vector <IncomeExpense> FileWithIncomes::downloadLoggedInUserIncomes(int loggedIn
     while (xml.FindElem("INCOME"))
     {
         xml.IntoElem();
+
         xml.FindElem("USERID");
         userid = atoi( MCD_2PCSZ(xml.GetData()));
+        xml.FindElem("INCOMEID");
+        lastIncomeID = atoi( MCD_2PCSZ(xml.GetData()));
+
         if (userid == loggedInUserID)
         {
             income.setUserID(userid);
@@ -69,14 +74,12 @@ vector <IncomeExpense> FileWithIncomes::downloadLoggedInUserIncomes(int loggedIn
         }
         xml.OutOfElem();
     }
+
     if (fileExists(incomeFileName.c_str())== false || incomes.size() == 0)
     {
          lastIncomeID = 0;
     }
-    else if (fileExists(incomeFileName.c_str())== true)
-    {
-        lastIncomeID = incomes.back().getIncomeOrExpenseID();
-    }
+
 
     return incomes;
 }
