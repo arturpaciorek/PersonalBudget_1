@@ -26,6 +26,15 @@ User UserManager :: setNewUserData()
 
     } while (isLoginExist(user.getLogin()) == true);
 
+    string name;
+    cout << "Imie: ";
+    cin >> name;
+    user.setName(name);
+
+    string surname;
+    cout << "Nazwisko: ";
+    cin >> surname;
+    user.setSurname(surname);
     string password;
     cout << "Podaj haslo: ";
     cin >> password;

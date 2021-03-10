@@ -27,7 +27,7 @@ IncomeExpense BalanceManager::addInformationAboutIncome()
     if (choice == 't')
         dateIncome = date.todaysDate();
 
-    else if (choice == 'o')
+    else if (choice != 't')
         dateIncome = date.otherDate();
 
     cout << "Wpisz tytul: ";
@@ -68,7 +68,7 @@ IncomeExpense BalanceManager::addInformationAboutExpense()
     if (choice == 't')
         dateExpense = date.todaysDate();
 
-    else if (choice == 'o')
+    else if (choice != 't')
         dateExpense = date.otherDate();
 
     cout << "Wpisz tytul: ";
